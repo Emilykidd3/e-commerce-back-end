@@ -52,7 +52,17 @@ router.put("/:id", (req, res) => {
         id: req.params.id,
       }
     }
-  ).then(dbCategory => res.json(dbCategory))
+  ).then(dbCategory => {
+    if (!dbProduct) {
+      res.status(400).json({ message: 'no product found with this id' })
+      return;
+    }
+    res.json(dbCategory)
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 // WORKS
@@ -62,7 +72,17 @@ router.delete("/:id", (req, res) => {
     where: {
       id: req.params.id
     }
-  }).then(dbCategory => res.json(dbCategory))
+  }).then(dbCategory => {
+    if (!dbProduct) {
+      res.status(400).json({ message: 'no product found with this id' })
+      return;
+    }
+    res.json(dbCategory)
+  })
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 module.exports = router;
