@@ -53,7 +53,7 @@ router.put("/:id", (req, res) => {
       }
     }
   ).then(dbCategory => {
-    if (!dbProduct) {
+    if (!dbCategory) {
       res.status(400).json({ message: 'no product found with this id' })
       return;
     }
@@ -73,7 +73,7 @@ router.delete("/:id", (req, res) => {
       id: req.params.id
     }
   }).then(dbCategory => {
-    if (!dbProduct) {
+    if (!dbCategory) {
       res.status(400).json({ message: 'no product found with this id' })
       return;
     }
