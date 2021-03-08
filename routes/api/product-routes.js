@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
       model: Tag,
       through: ProductTag
     }]
-  }).then(dbProduct => res.json(dbProduct))
+  }).then(dbProduct => res.status(200).json(dbProduct))
   .catch(err => {
     console.log(err);
     res.status(500).json(err);
@@ -38,7 +38,7 @@ router.get('/:id', (req, res) => {
       res.status(400).json({ message: 'no product found with this id' });
       return;
     }
-    res.json(dbProduct);
+    res.status(200).json(dbProduct);
   })
   .catch(err => {
     console.log(err);
@@ -134,7 +134,7 @@ router.delete('/:id', (req, res) => {
       res.status(400).json({ message: 'no product found with this id' });
       return;
     }
-    res.json(dbProduct);
+    res.status(200).json(dbProduct);
   })
   .catch(err => {
     console.log(err);

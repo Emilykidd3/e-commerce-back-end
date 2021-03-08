@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
     indlue: [Product],
   })
     .then((dbCategory) => {
-      res.json(dbCategory);
+      res.status(200).json(dbCategory);
     })
     .catch((err) => {
       console.log(err);
@@ -29,7 +29,7 @@ router.get("/:id", (req, res) => {
     },
     include: [Product],
   })
-    .then((dbCategory) => res.json(dbCategory))
+    .then((dbCategory) => res.status(200).json(dbCategory))
     .catch((err) => {
       console.log(err);
       res.status(500).json(err);
@@ -39,7 +39,7 @@ router.get("/:id", (req, res) => {
 // WORKS
 router.post("/", (req, res) => {
   // create a new category
-  Category.create(req.body).then((dbCategory) => res.json(dbCategory));
+  Category.create(req.body).then((dbCategory) => res.status(200).json(dbCategory));
 });
 
 // WORKS
@@ -57,7 +57,7 @@ router.put("/:id", (req, res) => {
       res.status(400).json({ message: 'no product found with this id' })
       return;
     }
-    res.json(dbCategory)
+    res.status(200).json(dbCategory)
   })
   .catch((err) => {
     console.log(err);
@@ -77,7 +77,7 @@ router.delete("/:id", (req, res) => {
       res.status(400).json({ message: 'no product found with this id' })
       return;
     }
-    res.json(dbCategory)
+    res.status(200).json(dbCategory)
   })
   .catch((err) => {
     console.log(err);
