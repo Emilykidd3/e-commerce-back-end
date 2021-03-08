@@ -1,7 +1,7 @@
 # e-commerce-back-end
 
 ### Description
-The back end of an e-commerce application. It gives all the API routes neccessary to find all, find one, post, update, and delete a product, category or tag. It uses sequelize so commands can be written in plain javascript.
+The back end of an e-commerce application. It gives all the API routes neccessary to find all, find one, post, update, and delete a product, category or tag. It uses sequelize so commands can be written in plain javascript, and mysql for holding the products, catogories, and tags in tables.
 
 ### Download Instructions
 Clone the respository onto your machine, and run 'npm i' in your command line. To create the database, open Mysql using 'mysql -u root -p', then 'source db/schema.sql;'. Use 'quit;' to exit mysql, 'npm run seed' to populate the tables, and 'npm start' to start the server.
